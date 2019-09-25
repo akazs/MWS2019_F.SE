@@ -10,7 +10,8 @@
         "https://developer.mozilla.org/",
         "https://mdn.mozillademos.org/",
         "<all_urls>",
-        "https://www.mozilla.org/en-US/privacy/firefox/"
+        "https://www.mozilla.org/en-US/privacy/firefox/",
+        "https://github.com/akazs/MWS2019_F.SE/blob/kawakami/alert.html"
     ],
 
      "background": {
