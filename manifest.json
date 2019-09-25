@@ -1,25 +1,21 @@
 {
-    "description": "MWS2019_F.SE",
-    "manifest_version":2,
-    "name": "MWS2019_F.SE",
-    "version": "0.1",
 
-    "permissions": [
-        "webRequest",
-        "webRequestBlocking",
-        "https://developer.mozilla.org/",
-        "https://mdn.mozillademos.org/"
-    ],
+  "description": "Demonstrating webRequests",
+  "manifest_version": 2,
+  "name": "webRequest-demo",
+  "version": "1.0",
 
-    // "background": {
-    //     "scripts": ["background.js"]
-    // }
-    "content_scripts": [
-        {
-          "matches": ["<all_urls>"],
-          "js": ["background.js"]
-        }
-      ]
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",    
+    "https://developer.mozilla.org/",
+    "https://mdn.mozillademos.org/",
+    "https://38.media.tumblr.com/tumblr_ldbj01lZiP1qe0eclo1_500.gif",
+    "<all_urls>"
+  ],
+ 
+  "background": {
+    "scripts": ["background.js"]
+  }
 
-    
 }
