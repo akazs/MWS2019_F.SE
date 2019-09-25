@@ -1,31 +1,26 @@
-document.body.style.border = "5px solid red";
+const blacklistDir = 'blacklist'
+const blaklistnames = ['ds1.json','ds2oth.json','ds3mal.json','ds3phi.json','ds3spa.json'];
+var blacklists = [];
+var keyword = 'banner.titancasino.com';
 
-// alertはbackgroundでは使えないのでデバッグ用
-alert("Hello world!"); 
-// const hoge = 'hogee';
-var blacklist = {};
-httpObj = new XMLHttpRequest();
-httpObj.open("get", "hoge.json", true);
-
-httpObj.onload = function(){
-        blacklist = JSON.parse(this.responseText);
-        var txt = "";
-        console.log(blacklist);
-        
-
-
-        if(serch(blacklist,'hoge')){
-            console.log("dangerous!")
-        };
+for(var i=0;i<blaklistnames.length;i++){
+    httpObj = new XMLHttpRequest();
+    httpObj.open("get", blacklistDir+'/'+blaklistnames[i], true);
+    httpObj.onload = function(){
+            bl = JSON.parse(this.responseText);
+            console.log(bl);
+            blacklists.push(bl);
+        }
+    httpObj.send(null);
+}
 
 
+
+function serch(blacklists,keyword){
+    for(var i=0;i<blacklists.length;i++){
+        if (blacklists[i][keyword]) return true;
     }
-httpObj.send(null);
-
-
-function serch(blacklist,keyword){
-    if (blacklist[keyword]) return true;
-    else return false;
+    return false;
 }
 
 
@@ -35,6 +30,7 @@ var pattern = "https://lab.syncer.jp/*";
 //var pattern = "^(?!https:\/\/38\.media\.tumblr\.com*).+$";
 var redirectUrl = "https://38.media.tumblr.com/tumblr_ldbj01lZiP1qe0eclo1_500.gif";
 function redirect(requestDetails) {
+    console.log(serch(blacklists,keyword));
   console.log("Redirecting: " + requestDetails.url);
   if (requestDetails.url == redirectUrl){
       console.log('おなじ');
