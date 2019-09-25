@@ -1,6 +1,6 @@
 document.body.style.border = "5px solid red";
 console.log('hoge');
-// backgroundでは使えない
+// alertはbackgroundでは使えないのでデバッグ用
 alert("Hello world!"); 
 // const hoge = 'hogee';
 
