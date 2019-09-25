@@ -2,6 +2,7 @@ const blacklistDir = 'blacklist'
 const blaklistnames = ['ds1.json','ds2oth.json','ds3mal.json','ds3phi.json','ds3spa.json'];
 var blacklists = [];
 var keyword = 'banner.titancasino.com';
+//var keyword = 'c.b.a.com';
 
 for(var i=0;i<blaklistnames.length;i++){
     httpObj = new XMLHttpRequest();
@@ -14,30 +15,34 @@ for(var i=0;i<blaklistnames.length;i++){
     httpObj.send(null);
 }
 
-
-
-function serch(blacklists,keyword){
-    for(var i=0;i<blacklists.length;i++){
-        if (blacklists[i][keyword]) return true;
-    }
-    return false;
-}
-
-
-
+//var pattern = "<all_urls>";
 var pattern = "https://lab.syncer.jp/*";
+//var pattern = '^(?!.*tumblr).*$';
+//var pattern = "https://**";
+
 //var pattern = "^(?!https://38.media.tumblr.com/tumblr_ldbj01lZiP1qe0eclo1_500.gif).+$";
 //var pattern = "^(?!https:\/\/38\.media\.tumblr\.com*).+$";
-var redirectUrl = "https://38.media.tumblr.com/tumblr_ldbj01lZiP1qe0eclo1_500.gif";
+//var redirectUrl = "https://38.media.tumblr.com/tumblr_ldbj01lZiP1qe0eclo1_500.gif";
+//var redirectUrl = 'moz-extension://' + location.hostname + '/foo.html';
 function redirect(requestDetails) {
-    console.log(serch(blacklists,keyword));
+
+
+
+
+
+
+    if(ret = serch(blacklists,genDomains(keyword))){
+        console.log(ret,'dangerous!');
+    }
+    ru = chrome.extension.getURL("foo.html");
   console.log("Redirecting: " + requestDetails.url);
-  if (requestDetails.url == redirectUrl){
+  console.log(chrome.extension.getURL("foo.html"))
+  if (requestDetails.url == ru){
       console.log('おなじ');
       return;
   }else{
     return {
-        redirectUrl
+        redirectUrl:chrome.extension.getURL("foo.html")
       };
   }
   
@@ -53,25 +58,19 @@ browser.webRequest.onBeforeRequest.addListener(
 
 
 
-function allDomain(domain){
+function genDomains(domain){
     var splited = domain.split('.');
     var domains = []
-    for(var i=2;i<=splited.length;i++){
-        domains.push(splited.slice(-i,splited.length).join('.'));
-    }
+    for(var i=0;i<splited.length-1;i++)
+        domains.push(splited.slice(i,splited.length).join('.'));
     return domains;
 }
 
-function loadFile_changeHandler(e){
-    var files = e.target.files;
-    var fileData = "";
-    for(var i = 0; i < files.length; i++){
-    var fileVal = files[i];
-    fileData +=
-     'ファイル名：' + escape(fileVal.name) + '<br>' +
-     'ファイルサイズ：' + fileVal.size + 'バイト<br>' +
-     'MIMEタイプ:' + fileVal.type + '<br>' +
-     '最終更新日時：' + fileVal.lastModifiedDate + '<hr>';
+function serch(blacklists,keywords){
+    for(var i=0;i<blacklists.length;i++){
+        for (var j=0;j<keywords.length;j++)
+            if (blacklists[i][keywords[j]])
+                return blacklists[i][keywords[j]];
     }
-    $('#info').innerHTML = fileData;
+    return false;
 }
