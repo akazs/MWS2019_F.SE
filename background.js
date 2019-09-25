@@ -1,11 +1,14 @@
-document.body.style.border = "5px solid red";
-console.log('hoge');
-// alertはbackgroundでは使えないのでデバッグ用
-alert("Hello world!"); 
-// const hoge = 'hogee';
+var pattern = "https://developer.mozilla.org/*";
 
+function redirect(requestDetails) {
+  console.log("Redirecting: " + requestDetails.url);
+  return {
+    redirectUrl: "https://www.mozilla.org/en-US/privacy/firefox/"
+  };
+}
 
-// while (true){
-//     console.log('hoge');
-// }
-
+browser.webRequest.onBeforeRequest.addListener(
+  redirect,
+  {urls:[pattern]},
+  ["blocking"]
+);

@@ -8,18 +8,20 @@
         "webRequest",
         "webRequestBlocking",
         "https://developer.mozilla.org/",
-        "https://mdn.mozillademos.org/"
+        "https://mdn.mozillademos.org/",
+        "<all_urls>",
+        "https://www.mozilla.org/en-US/privacy/firefox/"
     ],
 
-    // "background": {
-    //     "scripts": ["background.js"]
-    // }
-    "content_scripts": [
-        {
-          "matches": ["<all_urls>"],
-          "js": ["background.js"]
-        }
-      ]
+     "background": {
+         "scripts": ["background.js"]
+     }
+//    "content_scripts": [
+//        {
+//          "matches": ["<all_urls>"],
+//          "js": ["background.js"]
+//        }
+//      ]
 
-    
+
 }
