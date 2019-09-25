@@ -8,18 +8,21 @@
         "webRequest",
         "webRequestBlocking",
         "https://developer.mozilla.org/",
-        "https://mdn.mozillademos.org/"
+        "https://mdn.mozillademos.org/",
+        "<all_urls>"
+        
+
     ],
 
-    // "background": {
-    //     "scripts": ["background.js"]
-    // }
-    "content_scripts": [
-        {
-          "matches": ["<all_urls>"],
-          "js": ["background.js"]
-        }
-      ]
+    "background": {
+        "scripts": ["background.js","hoge.js"]
+    }
+    // "content_scripts": [
+    //     {
+    //       "matches": ["<all_urls>"],
+    //       "js": ["background.js"]
+    //     }
+    //   ]
 
     
 }
