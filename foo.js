@@ -8,7 +8,12 @@ function getParam(name) {
 }
 
 function back1() {window.history.go(-1);}
-function go() {window.location.href = getParam('to');}
+function go() {
+  url = getParam('to')
+  addTmpWhitelist(url);
+  window.location.href = url;
+  
+}
 
 document.querySelector("#return").addEventListener('click', () => {
     back1();
