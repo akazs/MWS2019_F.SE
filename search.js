@@ -26,8 +26,8 @@ function genDomains(url){
     return domains;
 }
 
-function search(blacklists,domain){
-    var keywords = genDomains(domain);
+function search(blacklists,url){
+    var keywords = genDomains(url);
     for(var i=0;i<blacklists.length;i++){
         for (var j=0;j<keywords.length;j++)
             if (blacklists[i][keywords[j]])

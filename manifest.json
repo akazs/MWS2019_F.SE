@@ -12,7 +12,7 @@
   ],
   "web_accessible_resources" : ["sample.jpg","foo.html"],
   "background": {
-    "scripts": ["search.js","background.js"]
+    "scripts": ["search.js","tmpWhitelist.js","background.js"]
   }
 
 }

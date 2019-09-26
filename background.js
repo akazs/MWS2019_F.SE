@@ -1,5 +1,14 @@
 const redirectDest = chrome.extension.getURL("foo.html");
-blacklist = genBlackList()
+blacklists = genBlackList()
+whitelists = [{}]
+
+function addTmpUrlToWhitelist(url){
+	whitelists[0][url.split('/')[2]] = true;
+}
+
+function deleteTmpUrlFromWhitelist(url){
+	whitelists[0][url.split('/')[2]] = false;
+}
 
 function get_scheme(original_url){
 	return original_url.split(":")[0];
@@ -15,10 +24,13 @@ function redirect(requestDetails){
 	// https
 	}else if (scheme == 'https') {
 		// ブラックリストにドメイン名があったとき
-		if (ret = search(blacklist,requestDetails.url)){
+		if (ret = search(blacklists,requestDetails.url)){
 			console.log("dangerou!: ",ret);
 			console.log("url: ", requestDetails.url);
 			return {redirectUrl: u};
+		// ブラックリストにドメインがなかったとき
+		}else{
+
 		}
 	}
 }
