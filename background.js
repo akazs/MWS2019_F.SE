@@ -13,13 +13,15 @@ function check_http(original_url){
 function redirect(requestDetails){
 	var result = check_http(requestDetails.url);
 	console.log(result);
+	var u = chrome.extension.getURL("sample.jpg");
 	if (result){
-		return {redirectUrl: "https://38.media.tumblr.com/tumblr_ldbj01lZiP1qe0eclo1_500.gif"};
+		return {redirectUrl: u};
+		//location.href("moz-extension://865ea2d0-f6b2-0347-bfc6-9f7bb26ef490/sample.jpg");
 	}
 }
 
 browser.webRequest.onBeforeRequest.addListener(
   redirect,
-  {urls:[pattern]},
+  {urls:["*://*/*"]},
   ["blocking"]
 );
