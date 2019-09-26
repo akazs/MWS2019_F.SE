@@ -1,14 +1,5 @@
 const redirectDest = chrome.extension.getURL("foo.html");
 blacklists = genBlackList()
-whitelists = [{}]
-
-function addTmpUrlToWhitelist(url){
-	whitelists[0][url.split('/')[2]] = true;
-}
-
-function deleteTmpUrlFromWhitelist(url){
-	whitelists[0][url.split('/')[2]] = false;
-}
 
 function get_scheme(original_url){
 	return original_url.split(":")[0];
