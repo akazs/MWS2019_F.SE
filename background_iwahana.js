@@ -16,8 +16,8 @@ function redirect(requestDetails){
 	var u = chrome.extension.getURL("sample.jpg");
 	if (result){
 		return {redirectUrl: u};
-		//location.href("moz-extension://865ea2d0-f6b2-0347-bfc6-9f7bb26ef490/sample.jpg");
-	}
+
+	} //
 }
 
 browser.webRequest.onBeforeRequest.addListener(
