@@ -16,14 +16,16 @@ for(var i=0;i<blaklistnames.length;i++){
 }
 
 //var pattern = "<all_urls>";
-var pattern = "https://lab.syncer.jp/*";
+//var pattern = "https://lab.syncer.jp/*";
 //var pattern = '^(?!.*tumblr).*$';
 //var pattern = "https://**";
+var pattern = "*://*/*";
 
 //var pattern = "^(?!https://38.media.tumblr.com/tumblr_ldbj01lZiP1qe0eclo1_500.gif).+$";
 //var pattern = "^(?!https:\/\/38\.media\.tumblr\.com*).+$";
 //var redirectUrl = "https://38.media.tumblr.com/tumblr_ldbj01lZiP1qe0eclo1_500.gif";
 //var redirectUrl = 'moz-extension://' + location.hostname + '/foo.html';
+var ru = 'foo.html';
 function redirect(requestDetails) {
 
 
@@ -36,15 +38,18 @@ function redirect(requestDetails) {
     }
     ru = chrome.extension.getURL("foo.html");
   console.log("Redirecting: " + requestDetails.url);
-  console.log(chrome.extension.getURL("foo.html"))
-  if (requestDetails.url == ru){
-      console.log('おなじ');
-      return;
-  }else{
+  console.log(ru)
+//   if (requestDetails.url == ru){
+//       console.log('おなじ');
+//       return;
+//   }else{
+//     return {
+//         redirectUrl:ru
+//       };
+//   }
     return {
-        redirectUrl:chrome.extension.getURL("foo.html")
-      };
-  }
+        redirectUrl:ru
+    };
   
 }
 

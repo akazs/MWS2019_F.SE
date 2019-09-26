@@ -12,6 +12,9 @@
         "storage",
         "<all_urls>"
     ],
+    "web_accessible_resources": [
+        "foo.html"
+    ],
     
 
     "background": {
