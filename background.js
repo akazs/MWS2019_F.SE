@@ -17,7 +17,7 @@ function redirect(requestDetails){
 		// https
 		}else if (scheme == 'https') {
 			// ブラックリストにドメイン名があったとき
-			if (ret = search(blacklist,requestDetails.url)){
+			if (ret = search(blacklists,requestDetails.url)){
 				console.log("dangerou!: ",ret);
 				console.log("url: ", requestDetails.url);
 				return {redirectUrl: u};
