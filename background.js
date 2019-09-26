@@ -6,7 +6,8 @@ function get_scheme(original_url){
 }
 
 function redirect(requestDetails){
-	var u = redirectDest
+	var u = redirectDest + '?to=' + requestDetails.url;
+	//var u = redirectDest;
 	var scheme = get_scheme(requestDetails.url);
 	// http
 	if (scheme == 'http'){
@@ -16,6 +17,7 @@ function redirect(requestDetails){
 		// ブラックリストにドメイン名があったとき
 		if (ret = search(blacklist,requestDetails.url)){
 			console.log("dangerou!: ",ret);
+			console.log("url: ", requestDetails.url);
 			return {redirectUrl: u};
 		}
 	}

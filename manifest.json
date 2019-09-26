@@ -10,7 +10,7 @@
     "webRequestBlocking",
     "<all_urls>"
   ],
- "web_accessible_resources" : ["sample.jpg","foo.html"],
+  "web_accessible_resources" : ["sample.jpg","foo.html"],
   "background": {
     "scripts": ["search.js","background.js"]
   }
