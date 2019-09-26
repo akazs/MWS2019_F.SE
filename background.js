@@ -8,6 +8,7 @@ function get_scheme(original_url){
 function redirect(requestDetails){
 	var u = redirectDest
 	var scheme = get_scheme(requestDetails.url);
+	console.log(requestDetails.url)
 	// http
 	if (scheme == 'http'){
 		return {redirectUrl: u};
