@@ -7,7 +7,10 @@ function getParam(name) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function back1() {window.history.go(-1);}
+function back1() {
+
+	window.history.back();
+}
 function go() {
   url = getParam('to')
   addTmpWhitelist(url);
