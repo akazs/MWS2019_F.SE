@@ -9,15 +9,17 @@ function redirect(requestDetails){
 	var u = redirectDest + '?to=' + requestDetails.url;
 	//var u = redirectDest;
 	var scheme = get_scheme(requestDetails.url);
-
-	if (!searchTmpWhitelist(requestDetails.url)){
-		// if a url has http,redirect
+	console.log(requestDetails.url);
+	if(searchTmpWhitelist(requestDetails.url))
+		deleteTmpWhitelist(requestDetails.url);
+	else{
+		// if a url has http, redirect
 		if (scheme == 'http'){
 			return {redirectUrl: u};
 		// https
 		}else if (scheme == 'https') {
 			// ブラックリストにドメイン名があったとき
-			if (ret = search(blacklist,requestDetails.url)){
+			if (ret = search(blacklists,requestDetails.url)){
 				console.log("dangerou!: ",ret);
 				console.log("url: ", requestDetails.url);
 				return {redirectUrl: u};
