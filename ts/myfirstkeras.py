@@ -24,6 +24,6 @@ import tensorflow as tf
 li_cb = []
 li_cb.append(ModelCheckpoint('./model.hdf5', save_best_only=True))
 
-model.fit(data, labels, epochs=2, validation_split=0.2,callbacks=li_cb)
+model.fit(data, labels, epochs=200, validation_split=0.2,callbacks=li_cb)
 tf.contrib.saved_model.save_keras_model(model, './models/keras_export')
 model.save('my_model.h5')
