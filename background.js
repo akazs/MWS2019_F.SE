@@ -6,10 +6,11 @@ function get_scheme(original_url){
 }
 
 function redirect(requestDetails){
+	checkSuspiciousDomain(requestDetails.url,requestDetails.requestId)
 	var u = redirectDest + '?to=' + requestDetails.url;
 	//var u = redirectDest;
 	var scheme = get_scheme(requestDetails.url);
-	console.log(requestDetails.url);
+	//console.log(requestDetails.url);
 	if(searchTmpWhitelist(requestDetails.url))
 		deleteTmpWhitelist(requestDetails.url);
 	else{
@@ -33,3 +34,35 @@ browser.webRequest.onBeforeRequest.addListener(
   {urls:["*://*/*"]},
   ["blocking"]
 );
+
+
+//　証明書情報取得の実験用
+async function logRootCert(details) {
+	try {
+	  let securityInfo = await browser.webRequest.getSecurityInfo(
+		details.requestId,
+		{"certificateChain": true}
+	  );
+	  console.log('onHeadersReceived, ',securityInfo)
+	  if ((securityInfo.state == "secure" || securityInfo.state == "weak") &&
+		  !securityInfo.isUntrusted) {
+		let rootName = securityInfo.certificates[securityInfo.certificates.length - 1].subject;
+		if (rootCertStats[rootName] === undefined) {
+		  rootCertStats[rootName] = 1;
+		} else {
+		  rootCertStats[rootName] = rootCertStats[rootName] + 1;
+		}
+	  }
+	}
+	catch(error) {
+	  console.error(error);
+	}
+  }
+  
+  /*
+  Listen for all onHeadersReceived events.
+  */
+  browser.webRequest.onHeadersReceived.addListener(logRootCert,
+	{urls: ["<all_urls>"]},
+	["blocking"]
+  );

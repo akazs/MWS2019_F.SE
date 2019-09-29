@@ -35,3 +35,13 @@ function search(blacklists,url){
     }
     return false;
 }
+
+async function checkSuspiciousDomain(url,requestId){
+    console.log('onBeforeRequest',await browser.webRequest.getSecurityInfo(requestId,{certificateChain:true}));
+    // .validity.end / 1000
+    var domain = url.split('/')[2];
+    if (! new RegExp('/^(?=.*?[a-z])(?=.*?\d)[a-z\d]{10,}$/i').test(domain) ) return false
+    else return true
+    
+
+}
