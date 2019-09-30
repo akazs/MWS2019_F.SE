@@ -34,10 +34,10 @@ function redirect(requestDetails){
 
 browser.webRequest.onBeforeRequest.addListener(
   redirect,
-  {urls:["*://*/*"]},
+  {urls:["*://*/*"],types:["main_frame"]},
   ["blocking"]
 );
-
+//["image"]
 
 //　証明書情報取得の実験用
 async function logRootCert(details) {

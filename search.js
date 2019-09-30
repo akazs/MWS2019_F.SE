@@ -35,8 +35,6 @@ function search(blacklists,url){
     }
     return false;
 }
-<<<<<<< HEAD
-=======
 
 async function checkSuspiciousDomain(url,requestId){
     console.log('onBeforeRequest',await browser.webRequest.getSecurityInfo(requestId,{certificateChain:true}));
@@ -47,4 +45,3 @@ async function checkSuspiciousDomain(url,requestId){
     
 
 }
->>>>>>> chinen
