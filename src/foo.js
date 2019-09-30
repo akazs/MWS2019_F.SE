@@ -9,7 +9,8 @@ function getParam(name) {
 }
 
 function getMaliciousType() {
-  if((ret = getParam('v'))!='others') return 'Malicious type : ' + ret;
+	ret = getParam('v')
+  if(ret && ret !='others') return 'Malicious type : ' + ret;
 }
 function back1() {
 	//from_url = window.location.href.split("&")[1].substr(5);
@@ -38,4 +39,3 @@ catch(e){
     if(e instanceof TypeError)
       console.log('This page does not have any specific malicious elements.');
 }
-

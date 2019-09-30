@@ -18,7 +18,7 @@ function redirect(requestDetails){
 		if (ret = search(blacklists,requestDetails.url)){
 			console.log("dangerous!: ",ret);
 			console.log("url: ", requestDetails.url);
-			return {redirectUrl: u};
+			return {redirectUrl: u + '&v=' + ret};
 		} else{
 
 			if (check_blacklist_posibility(requestDetails.url.split("/")[2])){
