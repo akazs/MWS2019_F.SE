@@ -46,7 +46,7 @@
 ブラックリストに載っているドメインを検索しようとした時のデモである．
 以下のデモでは，`http://081.co.uk`というphisingサイトへのアクセスを試みている．
 
- **上記のサイトはブラックリストに載っている本当のphishingサイトであるため，実験環境でアクセスするようにして下さい．** 
+ **上記のサイトはブラックリストに載っている本当のphishingサイトであるため，実験環境でアクセスするようにして下さい．**
 
 ![](https://github.com/akazs/MWS2019_F.SE/blob/master/blacklist_demo.gif)
 
@@ -62,8 +62,7 @@ http通信を使用しているサイトにアクセスしようとしている�
 我々のアルゴリズムで悪質なサイトである可能性があるドメイン名であると判断されたサイトにアクセスしようとしている時のデモである．
 以下では，`https://fa3f8d8efs9f.com`という架空のドメインではあるが，我々のアルゴリズムで悪性サイトのドメインであると判断したものへのアクセスを試みている．
 
-悪性であると判断するアルゴリズムは以下のようなものである．
-[引用文献](https://waseda.repo.nii.ac.jp/?action=repository_action_common_download&item_id=19708&item_no=1&attribute_id=20&file_no=1)
+悪性であると判断するアルゴリズムは次のようなものである．[引用文献](https://waseda.repo.nii.ac.jp/?action=repository_action_common_download&item_id=19708&item_no=1&attribute_id=20&file_no=1)
 では，以下の3つの特徴から判断することで，約94%の精度で悪性サイトが検知できることが示されている．
 ```
 - 英数字が混在している
