@@ -64,7 +64,13 @@ http通信を使用しているサイトにアクセスしようとしている�
 
 悪性であると判断するアルゴリズムは以下のようなものである．
 [引用文献](https://waseda.repo.nii.ac.jp/?action=repository_action_common_download&item_id=19708&item_no=1&attribute_id=20&file_no=1)
-では，英数字が混在している，10文字以上で構成している，TTL(Time To Live)値が300以下の3つの特徴だけで約94%の精度で悪性サイトが検知できることが示されている．しかし，3つ目のTTL値はDNSサーバより取得する必要があるため，今回はFirefoxアドオンから取得可能なSSL証明書の有効日数の情報を用いた．
+では，以下の3つの特徴から判断することで，約94%の精度で悪性サイトが検知できることが示されている．
+```
+- 英数字が混在している
+- 10文字以上で構成している
+- TTL(Time To Live)値が300以下である
+```
+しかし，3つ目のTTL値はDNSサーバより取得する必要があるため，今回はFirefoxアドオンから取得可能なSSL証明書の有効日数の情報を用いた．
 
 
 ![](https://github.com/akazs/MWS2019_F.SE/blob/master/predict_demo.gif)
