@@ -13,7 +13,6 @@ function addTmpWhitelist(url){
     checkWhitelist()
     tmpwhitelist = JSON.parse(STORAGE.getItem(whitelistname));
     tmpwhitelist[url.split('/')[2]] = getTime();
-    console.log(tmpwhitelist)
     STORAGE.setItem(whitelistname,JSON.stringify(tmpwhitelist));
 }
 
