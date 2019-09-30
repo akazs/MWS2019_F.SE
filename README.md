@@ -32,7 +32,7 @@
 
 1. 画面内の`一時的なアドオン読み込み中...`(for English ver. `Load Temporary Add-on...`)ボタンを押し，先ほどcloneしたディレクトリの`background.js`を選択して，開く．
 
-1. `web-Request-demo`というアドオンが追加されていれば，インストール成功．
+1. `Intelligent Blocker`というアドオンが追加されていれば，インストール成功．
 
 ## ライセンス
 
@@ -49,4 +49,4 @@
 
 ### アドバイザー
 
-[大阪大学 大学院情報科学研究科 セキュリティ工学講座(藤原研究室) 助教 矢内直人](http://www-infosec.ist.osaka-u.ac.jp/~yanai/)
+[矢内直人(大阪大学 大学院情報科学研究科 セキュリティ工学講座(藤原研究室) 助教)](http://www-infosec.ist.osaka-u.ac.jp/~yanai/)
