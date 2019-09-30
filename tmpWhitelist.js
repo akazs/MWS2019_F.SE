@@ -1,8 +1,9 @@
 const whitelistname = 'tmpWhitelist'
+const STORAGE = localStorage
 //　存在確認
 function checkWhitelist(){
-    if(localStorage.getItem(whitelistname) == null){
-        localStorage.setItem(whitelistname,JSON.stringify({}))
+    if(STORAGE.getItem(whitelistname) == null){
+        STORAGE.setItem(whitelistname,JSON.stringify({}))
         return false;
     }else return true;
 }
@@ -10,21 +11,37 @@ function checkWhitelist(){
 // 一時的なホワイトリストに追加
 function addTmpWhitelist(url){
     checkWhitelist()
-    tmpwhitelist = JSON.parse(localStorage.getItem(whitelistname));
-    tmpwhitelist[url.split('/')[2]] = true;
-    localStorage.setItem(whitelistname,JSON.stringify(tmpwhitelist));
+    tmpwhitelist = JSON.parse(STORAGE.getItem(whitelistname));
+    tmpwhitelist[url.split('/')[2]] = getTime();
+    console.log(tmpwhitelist)
+    STORAGE.setItem(whitelistname,JSON.stringify(tmpwhitelist));
 }
 
+const INTERVAL = 10 * 60 * 1000
 // 一時的なホワイトリストにurlがあればture,なければfalseを返す
 function searchTmpWhitelist(url){
+    // return false if there is no tmpWhiteList
     if (!checkWhitelist()) return false;
-    tmpwhitelist = JSON.parse(localStorage.getItem(whitelistname));
-    return search([tmpwhitelist],url)
+    // get tmpWhiteList
+    tmpwhitelist = JSON.parse(STORAGE.getItem(whitelistname));
+    console.log([tmpwhitelist]);
+    // 最後に許可された時間を確認
+    if(!(lastApprovedTime = search([tmpwhitelist],url)))return false
+    if(getTime() - lastApprovedTime > INTERVAL) return false
+    else return true
 }
-// 一時的なホワイトリストから削除(余裕があれば使う)
+// 一時的なホワイトリストから削除
 function deleteTmpWhitelist(url){
     if(!checkWhitelist) return;
-    tmpwhitelist = JSON.parse(localStorage.getItem(whitelistname));
+    tmpwhitelist = JSON.parse(STORAGE.getItem(whitelistname));
     tmpwhitelist[url.split('/')[2]] = false;
-    localStorage.setItem(whitelistname,JSON.stringify(tmpwhitelist));
+    STORAGE.setItem(whitelistname,JSON.stringify(tmpwhitelist));
 }
+
+//UNIXタイムスタンプ取得
+function getTime(){
+    return new Date().getTime()
+}
+
+
+
