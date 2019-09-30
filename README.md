@@ -41,7 +41,7 @@
 ### インストールのデモ
 ![][install_demo]
 
-[install_demo]:https://github.com/akazs/MWS2019_F.SE/blob/master/demo_test.gif
+[install_demo]:https://github.com/akazs/MWS2019_F.SE/blob/master/install_demo.gif
 
 
 ## ライセンス
