@@ -1,6 +1,6 @@
 # Intelligent Blocker
 
-悪性サイトをブラックリストやドメイン情報から検知し，ユーザが悪性サイトに接するリスクを軽減できるFirefox対応のアドオン機能
+悪性サイトをブラックリストやドメイン情報から検知し，ユーザが悪性サイトに接するリスクを軽減できるFirefox対応のアドオン機能である．
 
 ## 説明
 
@@ -37,6 +37,19 @@
 
 [install_demo]:https://github.com/akazs/MWS2019_F.SE/blob/master/install_demo.gif
 
+## 実行のデモ
+
+### ブラックリストに載っているドメインの時のデモ
+
+![](https://github.com/akazs/MWS2019_F.SE/blob/master/blacklist_demo.gif)
+
+### http通信を使用しているサイトの時のデモ
+
+![](https://github.com/akazs/MWS2019_F.SE/blob/master/http_demo.gif)
+
+### 悪質なサイトである可能性がある時のデモ
+
+![](https://github.com/akazs/MWS2019_F.SE/blob/master/predict_demo.gif)
 
 ## ライセンス
 
