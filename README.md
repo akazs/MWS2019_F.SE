@@ -6,12 +6,6 @@
 
 
 
-## Usage
-
-```
-
-```
-
 ## デモ
 
 ![](https://github.com/akazs/MWS2019_F.SE/blob/master/demo_test.gif)
