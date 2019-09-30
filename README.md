@@ -13,6 +13,7 @@
 
 ### アルゴリズム
 ![][algorithm]
+
 [algorithm]:https://github.com/akazs/MWS2019_F.SE/blob/master/algorithm.png
 
 ## 実行環境(2019/09/30現在)
@@ -39,6 +40,7 @@
 
 ### インストールのデモ
 ![][install_demo]
+
 [install_demo]:https://github.com/akazs/MWS2019_F.SE/blob/master/demo_test.gif
 
 
