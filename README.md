@@ -1,6 +1,6 @@
 # Intelligent Blocker
 
-悪性サイトをブラックリストやドメイン情報から検知し，ユーザが悪性サイトに接するリスクを軽減できるFirefox対応のアドオン機能
+悪性サイトをブラックリストやドメイン情報から検知し，ユーザが悪性サイトに接するリスクを軽減できるFirefox対応のアドオン機能である．
 
 ## 説明
 
@@ -24,15 +24,9 @@
 
 以下に[インストールのデモアニメーション](https://github.com/akazs/MWS2019_F.SE#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AE%E3%83%87%E3%83%A2)があるので，説明と一緒に参考にして下さい．
 
-1. 保存したいディレクトリ下で以下のコマンドを実行する．
+1. 保存したいディレクトリ下で次のコマンドを実行する．`$ git clone https://github.com/akazs/MWS2019_F.SE.git`
 
-`$ git clone https://github.com/akazs/MWS2019_F.SE.git`
-
-1. Firefoxを開き，URLバーに
-
-`about:debugging#/runtime/this-firefox`
-
-と入力する．
+1. Firefoxを開き，URLバーに`about:debugging#/runtime/this-firefox`と入力する．
 
 1. 画面内の`一時的なアドオン読み込み中...`(for English ver. `Load Temporary Add-on...`)ボタンを押し，先ほどcloneしたディレクトリの`background.js`を選択して，開く．
 
@@ -43,6 +37,19 @@
 
 [install_demo]:https://github.com/akazs/MWS2019_F.SE/blob/master/install_demo.gif
 
+## 実行のデモ
+
+### ブラックリストに載っているドメインの時のデモ
+
+![](https://github.com/akazs/MWS2019_F.SE/blob/master/blacklist_demo.gif)
+
+### http通信を使用しているサイトの時のデモ
+
+![](https://github.com/akazs/MWS2019_F.SE/blob/master/http_demo.gif)
+
+### 悪質なサイトである可能性がある時のデモ
+
+![](https://github.com/akazs/MWS2019_F.SE/blob/master/predict_demo.gif)
 
 ## ライセンス
 
