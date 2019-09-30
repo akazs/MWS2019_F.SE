@@ -1,0 +1,23 @@
+function leng10Checker(str){
+ //console.log(str.length);
+ return str.length > 10;
+}
+function mixChecker(str) {
+ var swi = 0;
+ var Eflag = true;
+ for(i=0; i<str.length; i++){
+   if(Eflag){
+     if(str.charAt(i).match(/[^a-z]/gi)){
+       swi++;
+       Eflag = false;
+     }
+   }else{
+     if(str.charAt(i).match(/[^0-9]/gi)){
+       swi++;
+       Eflag = true;
+     }
+   }
+ }
+ //console.log(str + "\n→" + swi/str.length + "\n");
+ return (swi/str.length) > 0.2;
+}

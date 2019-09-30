@@ -18,6 +18,25 @@ function genBlackList(){
     return blacklists;
 }
 
+
+function genWhiteList(){
+    const blacklistDir = 'whitelist'
+    const blaklistnames = ['AlexaWhite.json'];
+    var blacklists = [];
+    for(var i=0;i<blaklistnames.length;i++){
+        httpObj = new XMLHttpRequest();
+        httpObj.open("get", blacklistDir+'/'+blaklistnames[i], true);
+        httpObj.onload = function(){
+                bl = JSON.parse(this.responseText);
+                console.log(bl);
+                blacklists.push(bl);
+            }
+        httpObj.send(null);
+    }
+    return blacklists;
+}
+
+
 function genDomains(url){
     var splited = url.split('/')[2].split('.');
     var domains = []
@@ -42,6 +61,6 @@ async function checkSuspiciousDomain(url,requestId){
     var domain = url.split('/')[2];
     if (! new RegExp('/^(?=.*?[a-z])(?=.*?\d)[a-z\d]{10,}$/i').test(domain) ) return false
     else return true
-    
+
 
 }

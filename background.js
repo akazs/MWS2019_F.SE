@@ -1,13 +1,13 @@
 const redirectDest = chrome.extension.getURL("foo.html");
 const redirectDest_http = chrome.extension.getURL("foo_http.html");
-blacklists = genBlackList()
-
+blacklists = genBlackList();
+whitelists = genWhiteList();
 function get_scheme(original_url){
 	return original_url.split(":")[0];
 }
 
 function redirect(requestDetails){
-	checkSuspiciousDomain(requestDetails.url,requestDetails.requestId)
+	//checkSuspiciousDomain(requestDetails.url,requestDetails.requestId)
 	var u = redirectDest + '?to=' + requestDetails.url;
 	var u_http = redirectDest_http + '?to=' + requestDetails.url;
 	//var u = redirectDest;
@@ -17,17 +17,44 @@ function redirect(requestDetails){
 		//deleteTmpWhitelist(requestDetails.url);
 		console.log('approved by tmp white list :',requestDetails.url);
 	else{
-		// if a url has http, redirect
-		if (scheme == 'http'){
-			return {redirectUrl: u_http};
-		// https
-		}else if (scheme == 'https') {
-			// ブラックリストにドメイン名があったとき
-			if (ret = search(blacklists,requestDetails.url)){
-				console.log("dangerous!: ",ret);
-				console.log("url: ", requestDetails.url);
-				return {redirectUrl: u};
+		if (ret = search(blacklists,requestDetails.url)){
+			console.log("dangerous!: ",ret);
+			console.log("url: ", requestDetails.url);
+			return {redirectUrl: u};
+		} else{
+			//ブラックリストにあるかも？？
+			if (check_blacklist_posibility(requestDetails.url.split("/")[2])){
+				if (!search(whitelists,requestDetails.url)){
+					return {redirectUrl: u};
+				}
+			} else{
+				if (scheme == 'http'){
+					return {redirectUrl: u_http};
+				} else{
+					////
+					browser.webRequest.onHeadersReceived.addListener(
+                async function(details) {
+                    let securityInfo = await browser.webRequest.getSecurityInfo(
+                        details.requestId,
+                        {"certificateChain": false}
+                    )
+                    //console.log(JSON.stringify(securityInfo['certificates']))
+                    let validity = securityInfo['certificates'][0]['validity']
+                    let days = (validity['end'] - validity['start']) / (1000 * 86400)
+                    console.log(days, 'Days')
+                    if (days <= 90) {
+											if (!search(whitelists,requestDetails.url)){
+												return {redirectUrl: u};
+											}
+                        //return {redirectUrl: u};
+                    }
+                },
+                {urls:["*://*/*"],types:["main_frame"]},
+                ["blocking"]
+            )
+				}
 			}
+
 		}
 	}
 }
@@ -61,7 +88,7 @@ async function logRootCert(details) {
 	  console.error(error);
 	}
   }
-  
+
   /*
   Listen for all onHeadersReceived events.
   */
