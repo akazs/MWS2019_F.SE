@@ -12,7 +12,8 @@ function redirect(requestDetails){
 	var scheme = get_scheme(requestDetails.url);
 	//console.log(requestDetails.url);
 	if(searchTmpWhitelist(requestDetails.url))
-		deleteTmpWhitelist(requestDetails.url);
+		//deleteTmpWhitelist(requestDetails.url);
+		console.log('approved by tmp white list :',requestDetails.url);
 	else{
 		// if a url has http, redirect
 		if (scheme == 'http'){
