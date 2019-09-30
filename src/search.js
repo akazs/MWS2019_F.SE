@@ -21,7 +21,7 @@ function genBlackList(){
 
 function genWhiteList(){
     const blacklistDir = 'whitelist'
-    const blaklistnames = ['AlexaWhite.json'];
+    const blaklistnames = ['AlexaWhiteAll.json'];
     var blacklists = [];
     for(var i=0;i<blaklistnames.length;i++){
         httpObj = new XMLHttpRequest();
