@@ -1,5 +1,6 @@
 const redirectDest = chrome.extension.getURL("./src/foo.html");
 const redirectDest_http = chrome.extension.getURL("./src/foo_http.html");
+const redirectDest_analysis = chrome.extension.getURL("./src/foo_analysis.html");
 blacklists = genBlackList();
 whitelists = genWhiteList();
 function get_scheme(original_url){
@@ -9,6 +10,7 @@ function get_scheme(original_url){
 function redirect(requestDetails){
 	var u = redirectDest + '?to=' + requestDetails.url;
 	var u_http = redirectDest_http + '?to=' + requestDetails.url;
+	var u_analysis = redirectDest_analysis + '?to=' + requestDetails.url;
 	var scheme = get_scheme(requestDetails.url);
 	if(searchTmpWhitelist(requestDetails.url))
 		console.log('approved by tmp white list :',requestDetails.url);
@@ -21,7 +23,7 @@ function redirect(requestDetails){
 
 			if (check_blacklist_posibility(requestDetails.url.split("/")[2])){
 				if (!search(whitelists,requestDetails.url)){
-					return {redirectUrl: u};
+					return {redirectUrl: u_analysis};
 				}
 			} else{
 				if (scheme == 'http'){
@@ -38,10 +40,10 @@ function redirect(requestDetails){
                     let days = (validity['end'] - validity['start']) / (1000 * 86400)
                     console.log(days, 'Days')
                     if (days <= 90) {
-						console.log(u);
-						if (!search(whitelists,requestDetails.url)){
-							return {redirectUrl: u};
-						}
+											console.log(u);
+											if (!search(whitelists,requestDetails.url)){
+												return {redirectUrl: u_analysis};
+											}
                     }
                 },
                 {urls:["*://*/*"],types:["main_frame"]},
@@ -49,7 +51,6 @@ function redirect(requestDetails){
             )
 				}
 			}
-
 		}
 	}
 }
