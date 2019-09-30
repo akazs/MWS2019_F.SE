@@ -2,7 +2,7 @@
 
 悪性サイトをブラックリストやドメイン情報から検知し、ユーザが悪性サイトに接するリスクを軽減できるFirefox対応のアドオン機能
 
-## Description
+## 説明
 
 
 
@@ -12,13 +12,13 @@
 
 ```
 
-## Demo
+## デモ
 
-## Requirement(2019/09/30現在)
+## 実行環境(2019/09/30現在)
 
 - Firefox(69.0.1)
 
-## Install
+## インストール
 
 1. 保存したいディレクトリ下で以下のコマンドを実行する．
 
@@ -34,11 +34,11 @@
 
 1. `web-Request-demo`というアドオンが追加されていれば，インストール成功．
 
-## Licence
+## ライセンス
 
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
 
-## Author
+## 製作者
 
 - [akazs](https://github.com/akazs)
 - [wanidon](https://github.com/wanidon)
@@ -46,3 +46,7 @@
 - [Maxcafe](https://github.com/Maxcafe)
 - [kazukiiwahana](https://github.com/kazukiiwahana)
 - [kodai-sato](https://github.com/kodai-sato)
+
+### アドバイザー
+
+[大阪大学 大学院情報科学研究科 セキュリティ工学講座(藤原研究室) 助教 矢内直人](http://www-infosec.ist.osaka-u.ac.jp/~yanai/)
