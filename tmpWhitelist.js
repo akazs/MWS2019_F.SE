@@ -12,7 +12,6 @@ function addTmpWhitelist(url){
     checkWhitelist()
     tmpwhitelist = JSON.parse(localStorage.getItem(whitelistname));
     tmpwhitelist[url.split('/')[2]] = true;
-    console.log(tmpwhitelist)
     localStorage.setItem(whitelistname,JSON.stringify(tmpwhitelist));
 }
 
@@ -20,7 +19,6 @@ function addTmpWhitelist(url){
 function searchTmpWhitelist(url){
     if (!checkWhitelist()) return false;
     tmpwhitelist = JSON.parse(localStorage.getItem(whitelistname));
-    console.log([tmpwhitelist]);
     return search([tmpwhitelist],url)
 }
 // 一時的なホワイトリストから削除(余裕があれば使う)
@@ -30,8 +28,3 @@ function deleteTmpWhitelist(url){
     tmpwhitelist[url.split('/')[2]] = false;
     localStorage.setItem(whitelistname,JSON.stringify(tmpwhitelist));
 }
-
-
-
-
-
