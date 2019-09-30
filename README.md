@@ -62,15 +62,16 @@ http通信を使用しているサイトにアクセスしようとしている�
 我々のアルゴリズムで悪質なサイトである可能性があるドメイン名であると判断されたサイトにアクセスしようとしている時のデモである．
 以下では，`https://fa3f8d8efs9f.com`という架空のドメインではあるが，我々のアルゴリズムで悪性サイトのドメインであると判断したものへのアクセスを試みている．
 
-悪性であると判断するアルゴリズムは次のようなものである．[引用文献](https://waseda.repo.nii.ac.jp/?action=repository_action_common_download&item_id=19708&item_no=1&attribute_id=20&file_no=1)
-では，以下の3つの特徴から判断することで，約94%の精度で悪性サイトが検知できることが示されている．
+悪性であると判断するアルゴリズムは次の3つの特徴に着目している．
 ```
-- 英数字が混在している
-- 10文字以上で構成している
-- TTL(Time To Live)値が300以下である
+- 証明書の発行期限が90日より短いこと
+- ドメインが10文字以上であること
+- ドメインに英数字が混在していること
 ```
-しかし，3つ目のTTL値はDNSサーバより取得する必要があるため，今回はFirefoxアドオンから取得可能なSSL証明書の有効日数の情報を用いた．
+1つ目の`証明書の発行期限が90日より短いこと`という特徴は["Hunting Malicious TLS Certificates with Deep Neural Networks"](https://dl.acm.org/citation.cfm?doid=3270101.3270105)を参考文献としている．これにより今回はFirefoxアドオンから取得可能なSSL証明書の有効日数の情報を用いた．
 
+2，3つ目の特徴については["A Classification Method of Unknown Malicious Websites
+Using Address Features of each Network Address Class"](https://www.y-nakamr.net/research/ic/iwin2017kanazawa.pdf)を参考文献としている．
 
 ![](https://github.com/akazs/MWS2019_F.SE/blob/master/predict_demo.gif)
 
