@@ -60,7 +60,7 @@ http通信を使用しているサイトにアクセスしようとしている�
 ### 悪質なサイトである可能性がある時のデモ
 
 我々のアルゴリズムで悪質なサイトである可能性があるドメイン名であると判断されたサイトにアクセスしようとしている時のデモである．
-以下では，`https://fa3f8d8efs9f.com`という架空のドメインではあるが，我々のアルゴリズムで悪性サイトのドメインであると判断したものへのアクセスを試みている．
+以下では，`https://fd7fs7fadf7fd.com`という架空のドメインではあるが，我々のアルゴリズムで悪性サイトのドメインであると判断したものへのアクセスを試みている．
 
 悪性であると判断するアルゴリズムは次の3つの特徴に着目している．
 ```
@@ -70,7 +70,7 @@ http通信を使用しているサイトにアクセスしようとしている�
 ```
 1つ目の`証明書の発行期限が90日より短いこと`という特徴は["Hunting Malicious TLS Certificates with Deep Neural Networks"](https://dl.acm.org/citation.cfm?doid=3270101.3270105)を参考文献としている．これにより今回はFirefoxアドオンから取得可能なSSL証明書の有効日数の情報を用いた．
 
-2，3つ目の特徴については["A Classification Method of Unknown Malicious Websites
+2つ目および3つ目の特徴については["A Classification Method of Unknown Malicious Websites
 Using Address Features of each Network Address Class"](https://www.y-nakamr.net/research/ic/iwin2017kanazawa.pdf)を参考文献としている．
 
 ![](https://github.com/akazs/MWS2019_F.SE/blob/master/predict_demo.gif)
