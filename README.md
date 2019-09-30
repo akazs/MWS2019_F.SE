@@ -64,11 +64,11 @@ http通信を使用しているサイトにアクセスしようとしている�
 
 悪性であると判断するアルゴリズムは次の3つの特徴に着目している．
 ```
-- 証明書の発行期限が90日より短いこと
+- 証明書の有効期間が90日より短いこと
 - ドメインが10文字以上であること
 - ドメインに英数字が混在していること
 ```
-1つ目の`証明書の発行期限が90日より短いこと`という特徴は["Hunting Malicious TLS Certificates with Deep Neural Networks"](https://dl.acm.org/citation.cfm?doid=3270101.3270105)を参考文献としている．これにより今回はFirefoxアドオンから取得可能なSSL証明書の有効日数の情報を用いた．
+1つ目の`証明書の有効期間が90日より短いこと`という特徴のうち，"有効期間"に着目したのは，["Hunting Malicious TLS Certificates with Deep Neural Networks"](https://dl.acm.org/citation.cfm?doid=3270101.3270105)を参考文献としている．これにより今回はFirefoxアドオンから取得可能なSSL証明書の有効期間の情報を用いた．そして，その期間を"90日以内"としたのは，Let’s Encryptなど代表的なフリー証明書の有効期間がデフォルトで90日であるためである．
 
 2つ目および3つ目の特徴については["A Classification Method of Unknown Malicious Websites
 Using Address Features of each Network Address Class"](https://www.y-nakamr.net/research/ic/iwin2017kanazawa.pdf)を参考文献としている．
