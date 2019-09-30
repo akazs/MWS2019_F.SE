@@ -10,9 +10,9 @@
     "webRequestBlocking",
     "<all_urls>"
   ],
-  "web_accessible_resources" : ["foo_http.html","foo.html","caution-01.png"],
+  "web_accessible_resources" : ["src/foo_http.html","src/foo.html"],
   "background": {
-    "scripts": ["search.js","tmpWhitelist.js","background.js","blacklist_posibility.js"]
+    "scripts": ["./src/search.js","./src/tmpWhitelist.js","./src/blacklist_posibility.js","background.js"]
   }
 
 }

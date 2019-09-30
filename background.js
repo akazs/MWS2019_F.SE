@@ -1,5 +1,5 @@
-const redirectDest = chrome.extension.getURL("foo.html");
-const redirectDest_http = chrome.extension.getURL("foo_http.html");
+const redirectDest = chrome.extension.getURL("./src/foo.html");
+const redirectDest_http = chrome.extension.getURL("./src/foo_http.html");
 blacklists = genBlackList();
 whitelists = genWhiteList();
 function get_scheme(original_url){
@@ -38,6 +38,7 @@ function redirect(requestDetails){
                     let days = (validity['end'] - validity['start']) / (1000 * 86400)
                     console.log(days, 'Days')
                     if (days <= 90) {
+						console.log(u);
 						if (!search(whitelists,requestDetails.url)){
 							return {redirectUrl: u};
 						}
