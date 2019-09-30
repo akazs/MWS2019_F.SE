@@ -14,6 +14,8 @@
 
 ## デモ
 
+![](https://github.com/akazs/MWS2019_F.SE/blob/master/demo_test.gif)
+
 ## 実行環境(2019/09/30現在)
 
 - Firefox(69.0.1)
