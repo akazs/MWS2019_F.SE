@@ -21,9 +21,14 @@
 ## Install
 
 1. 保存したいディレクトリ下で以下のコマンドを実行する．
+
 `$ git clone https://github.com/akazs/MWS2019_F.SE.git`
 
-1. Firefoxを開き，URLバーに`about:debugging#/runtime/this-firefox`と入力する．
+1. Firefoxを開き，URLバーに
+
+`about:debugging#/runtime/this-firefox`
+
+と入力する．
 
 1. 画面内の`一時的なアドオン読み込み中...`(for English ver. `Load Temporary Add-on...`)ボタンを押し，先ほどcloneしたディレクトリの`background.js`を選択して，開く．
 
