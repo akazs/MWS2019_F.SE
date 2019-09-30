@@ -17,7 +17,7 @@ function addTmpWhitelist(url){
     STORAGE.setItem(whitelistname,JSON.stringify(tmpwhitelist));
 }
 
-const INTERVAL = 0.1 * 60 * 1000
+const INTERVAL = 10 * 60 * 1000
 // 一時的なホワイトリストにurlがあればture,なければfalseを返す
 function searchTmpWhitelist(url){
     // return false if there is no tmpWhiteList
