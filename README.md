@@ -46,6 +46,8 @@
 ブラックリストに載っているドメインを検索しようとした時のデモである．
 以下のデモでは，`http://081.co.uk`というphisingサイトへのアクセスを試みている．
 
+ **上記のサイトはブラックリストに載っている本当のphishingサイトであるため，アクセスには細心の注意を払って下さい．**
+
 ![](https://github.com/akazs/MWS2019_F.SE/blob/master/blacklist_demo.gif)
 
 ### http通信を使用しているサイトの時のデモ
@@ -58,9 +60,18 @@ http通信を使用しているサイトにアクセスしようとしている�
 ### 悪質なサイトである可能性がある時のデモ
 
 我々のアルゴリズムで悪質なサイトである可能性があるドメイン名であると判断されたサイトにアクセスしようとしている時のデモである．
-以下では，`https://fa3f8d8efs9f.com`という架空のドメインではあるが，https://waseda.repo.nii.ac.jp/?action=repository_action_common_download&item_id=19708&item_no=1&attribute_id=20&file_no=1
+以下では，`https://fd7fs7fadf7fd.com`という架空のドメインではあるが，我々のアルゴリズムで悪性サイトのドメインであると判断したものへのアクセスを試みている．
 
+悪性であると判断するアルゴリズムは次の3つの特徴に着目している．
+```
+- 証明書の有効期間が90日より短いこと
+- ドメインが10文字以上であること
+- ドメインに英数字が混在していること
+```
+1つ目の`証明書の有効期間が90日より短いこと`という特徴のうち，`有効期間`に着目したのは，["Hunting Malicious TLS Certificates with Deep Neural Networks"](https://dl.acm.org/citation.cfm?doid=3270101.3270105)を参考文献としている．この文献から今回はFirefoxアドオンから取得可能なSSL証明書の有効期間の情報を用いた．そして，その期間を`90日以内`としたのは，Let’s Encryptなど代表的なフリー証明書の有効期間がデフォルトで90日であるためである．
 
+2つ目および3つ目の特徴については["A Classification Method of Unknown Malicious Websites
+Using Address Features of each Network Address Class"](https://www.y-nakamr.net/research/ic/iwin2017kanazawa.pdf)を参考文献としている．
 
 ![](https://github.com/akazs/MWS2019_F.SE/blob/master/predict_demo.gif)
 
