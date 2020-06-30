@@ -85,7 +85,7 @@ Using Address Features of each Network Address Class"](https://www.y-nakamr.net/
 - [wanidon](https://github.com/wanidon)
 - [takemr](https://github.com/takemr)
 - [Maxcafe](https://github.com/Maxcafe)
-- [kazukiiwahana](https://github.com/kzk-IS)
+- [kzk-IS](https://github.com/kzk-IS)
 - [kodai-sato](https://github.com/kodai-sato)
 
 ### アドバイザー
